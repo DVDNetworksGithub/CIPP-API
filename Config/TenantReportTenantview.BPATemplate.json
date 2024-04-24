@@ -38,17 +38,24 @@
       ]
     },
     {
-      "name": "Unusedlicenses",
-      "UseExistingInfo": true,
+      "name": "Licenses",
+      "API": "CIPPFunction",
+      "UseExistingInfo": false,
+      "Command": "Get-CIPPLicenseOverview",
       "StoreAs": "JSON",
+      "ExtractFields": [
+        "License",
+        "TotalLicenses",
+        "availableUnits",
+        "CountUsed"
+      ],
       "FrontendFields": [
         {
-          "name": "Unused licenses",
+          "name": "Licenses",
           "formatter": "table",
-          "value": "Unusedlicenses",
-          "desc": "These are the licenses that are not assigned to an user, but have been purchased."
+          "value": "Licenses"
         }
-      ]
+      ],
     },
     {
       "name": "CurrentSecureScore",
