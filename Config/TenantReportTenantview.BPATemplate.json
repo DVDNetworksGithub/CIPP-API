@@ -5,22 +5,35 @@
     {
       "name": "Licenses",
       "API": "CIPPFunction",
-      "UseExistingInfo": false,
       "Command": "Get-CIPPLicenseOverview",
-      "StoreAs": "JSON",
       "ExtractFields": [
         "License",
         "TotalLicenses",
         "availableUnits",
         "CountUsed"
       ],
+      "StoreAs": "JSON",
       "FrontendFields": [
         {
           "name": "Licenses",
           "formatter": "table",
           "value": "Licenses"
         }
-      ],
+      ]
+    },
+    {
+      "name": "Licenses2",
+      "API": "Graph",
+      "URL": "https://graph.microsoft.com/v1.0/subscribedSkus",
+      "ExtractFields": ["skuPartNumber", "consumedUnits"],
+      "StoreAs": "JSON",
+      "FrontendFields": [
+        {
+          "name": "Licenses2",
+          "value": "Licenses2",
+          "formatter": "table"
+        }
+      ]
     }
   ]
 }
