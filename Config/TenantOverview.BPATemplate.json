@@ -1,0 +1,16 @@
+{
+  "name": "Tenant Overview",
+  "style": "Table",
+  "Fields": [
+    {
+      "name": "Sharepoint Settings",
+      "UseExistingInfo": true,
+      "FrontendFields": [
+        {
+          "name": "Shareing Capability",
+          "value": "SharepointSettings.sharingCapability"
+        }
+      ]
+    }
+  ]
+}
