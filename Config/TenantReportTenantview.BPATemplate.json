@@ -3,41 +3,6 @@
   "style": "Tenant",
   "Fields": [
     {
-      "name": "deviceregister",
-      "UseExistingInfo": false,
-      "StoreAs": "JSON",
-      "API": "Graph",
-      "URL": "https://graph.microsoft.com/beta/deviceManagement/managedDevices",
-      "ExtractFields": [
-        "deviceName",
-        "lastSyncDateTime",
-        "osVersion",
-        "userPrincipalName",
-        "complianceState"
-      ],
-      "FrontendFields": [
-        {
-          "name": "Device Register",
-          "value": "deviceregister",
-          "desc": "These are all devices found in M365 to add to your CE Device Register.",
-          "formatter": "table"
-        }
-      ]
-    },
-    {
-      "name": "TAPEnabled",
-      "UseExistingInfo": true,
-      "StoreAs": "bool",
-      "FrontendFields": [
-        {
-          "name": "Temporary Access Pass Enabled",
-          "value": "TAPEnabled",
-          "formatter": "bool",
-          "desc": "This setting shows if your environment has enabled the temporary access pass feature."
-        }
-      ]
-    },
-    {
       "name": "Licenses",
       "API": "CIPPFunction",
       "UseExistingInfo": false,
@@ -56,38 +21,6 @@
           "value": "Licenses"
         }
       ],
-    },
-    {
-      "name": "CurrentSecureScore",
-      "UseExistingInfo": true,
-      "StoreAs": "JSON",
-      "FrontendFields": [
-        {
-          "name": "Current Secure Score",
-          "value": "CurrentSecureScore.currentScore",
-          "desc": "The current Secure Score for this tenant. This is the sum of all the individual controls that have been implemented.",
-          "formatter": "number"
-        },
-        {
-          "name": "Max Secure Score",
-          "value": "CurrentSecureScore.maxScore",
-          "desc": "The maximum Secure Score for this tenant. This is the sum of all the individual controls that can be implemented.",
-          "formatter": "number"
-        }
-      ]
-    },
-    {
-      "name": "Unusedlicenses",
-      "UseExistingInfo": true,
-      "StoreAs": "JSON",
-      "FrontendFields": [
-        {
-          "name": "Unused licenses",
-          "formatter": "table",
-          "value": "Unusedlicenses",
-          "desc": "These are the licenses that are not assigned to an user, but have been purchased."
-        }
-      ]
     }
   ]
 }
