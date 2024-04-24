@@ -4,6 +4,7 @@
   "Fields": [
     {
       "name": "Licenses",
+      "UseExistingInfo": false,
       "API": "CIPPFunction",
       "Command": "Get-CIPPLicenseOverview",
       "ExtractFields": [
@@ -23,8 +24,9 @@
     },
     {
       "name": "Licenses2",
+      "UseExistingInfo": false,
       "API": "Graph",
-      "URL": "https://graph.microsoft.com/v1.0/subscribedSkus",
+      "URL": "https://graph.microsoft.com/beta/subscribedSkus",
       "ExtractFields": ["skuPartNumber", "consumedUnits"],
       "StoreAs": "JSON",
       "FrontendFields": [
