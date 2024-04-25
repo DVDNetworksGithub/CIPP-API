@@ -27,12 +27,15 @@
       "UseExistingInfo": false,
       "API": "Graph",
       "URL": "https://graph.microsoft.com/beta/subscribedSkus",
-      "ExtractFields": ["skuPartNumber", "consumedUnits"],
+      "ExtractFields": [
+        "skuPartNumber",
+        "consumedUnits"
+      ],
       "StoreAs": "JSON",
       "FrontendFields": [
         {
           "name": "Licenses2",
-          "value": "Licenses2",
+          "value": "Licenses2.skuPartNumber",
           "formatter": "table"
         }
       ]
