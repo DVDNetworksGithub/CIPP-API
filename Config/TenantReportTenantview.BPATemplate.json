@@ -23,6 +23,20 @@
       ]
     },
     {
+      "name": "TotalUsers",
+      "UseExistingInfo": false,
+      "API": "Graph",
+      "URL": "https://graph.microsoft.com/v1.0/users/$count?$filter=userType ne 'guest'",
+      "StoreAs": "JSON",
+      "FrontEndFields": [
+        {
+          "name": "Total non-guest users",
+          "value": "TotalUsers",
+          "Formatter": "number"
+        }
+      ]
+    },
+    {
       "name": "Licenses2",
       "UseExistingInfo": false,
       "API": "Graph",
