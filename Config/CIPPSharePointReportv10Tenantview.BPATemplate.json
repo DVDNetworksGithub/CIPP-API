@@ -1,8 +1,23 @@
 {
+  "name": "CIPP SharePoint Report v1.0 - Tenant view",
   "style": "Tenant",
   "Fields": [
     {
-      "UseExistingInfo": false,
+      "name": "SharepointSettings",
+      "API": "Graph",
+      "URL": "https://graph.microsoft.com/beta/admin/sharepoint/settings",
+      "Parameters": {
+        "asApp": "True"
+      },
+      "ExtractFields": [
+        "sharingCapability",
+        "isMacSyncAppEnabled",
+        "isResharingByExternalUsersEnabled",
+        "isUnmanagedSyncAppForTenantRestricted",
+        "isSiteCreationEnabled",
+        "deletedUserPersonalSiteRetentionPeriodInDays"
+      ],
+      "StoreAs": "JSON",
       "FrontendFields": [
         {
           "name": "Sharing capability",
@@ -34,41 +49,22 @@
           "value": "SharepointSettings.deletedUserPersonalSiteRetentionPeriodInDays",
           "formatter": "string"
         }
-      ],
-      "name": "SharepointSettings",
-      "API": "Graph",
-      "URL": "https://graph.microsoft.com/beta/admin/sharepoint/settings",
-      "Parameters": {
-        "asApp": "True"
-      },
-      "ExtractFields": [
-        "sharingCapability",
-        "isMacSyncAppEnabled",
-        "isResharingByExternalUsersEnabled",
-        "isUnmanagedSyncAppForTenantRestricted",
-        "isSiteCreationEnabled",
-        "deletedUserPersonalSiteRetentionPeriodInDays"
-      ],
-      "StoreAs": "JSON"
+      ]
     },
     {
-      "UseExistingInfo": false,
+      "name": "WebtimeOut",
+      "API": "Graph",
+      "URL": "https://graph.microsoft.com/beta/policies/activityBasedTimeoutPolicies",
+      "ExtractFields": ["definition"],
+      "StoreAs": "bool",
+      "where": "$_.definition -like '*WebSessionIdleTimeout*'",
       "FrontendFields": [
         {
           "name": "Web Time-Out enabled",
           "value": "WebtimeOut",
           "formatter": "bool"
         }
-      ],
-      "name": "WebtimeOut",
-      "API": "Graph",
-      "URL": "https://graph.microsoft.com/beta/policies/activityBasedTimeoutPolicies",
-      "ExtractFields": [
-        "definition"
-      ],
-      "StoreAs": "bool",
-      "where": "$_.definition -like '*WebSessionIdleTimeout*'"
+      ]
     }
-  ],
-  "name": "CIPP SharePoint Report v1.0 - Table view"
+  ]
 }
