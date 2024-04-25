@@ -28,13 +28,13 @@
       "API": "Graph",
       "URL": "https://graph.microsoft.com/beta/subscribedSkus",
       "ExtractFields": [
-        "value"
+        "skuPartNumber"
       ],
       "StoreAs": "JSON",
       "FrontendFields": [
         {
           "name": "Licenses2",
-          "value": "Licenses2.value.skuPartNumber",
+          "value": "Licenses2",
           "formatter": "table"
         }
       ]
